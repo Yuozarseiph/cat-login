@@ -1,3 +1,35 @@
+// Theme Toggle Functionality
+const themeSwitch = document.getElementById("themeSwitch");
+const themeIcon = document.getElementById("themeIcon");
+const body = document.body;
+const leftEye = document.getElementById("leftEye");
+const rightEye = document.getElementById("rightEye");
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "night") {
+  body.classList.add("night-mode");
+  themeIcon.textContent = "🌙";
+}
+
+themeSwitch.addEventListener("click", () => {
+  body.classList.toggle("night-mode");
+
+  if (body.classList.contains("night-mode")) {
+    themeIcon.textContent = "🌙";
+    localStorage.setItem("theme", "night");
+    // Cat goes to sleep
+    leftEye.classList.add("closed");
+    rightEye.classList.add("closed");
+  } else {
+    themeIcon.textContent = "☀️";
+    localStorage.setItem("theme", "day");
+    // Cat wakes up
+    leftEye.classList.remove("closed");
+    rightEye.classList.remove("closed");
+  }
+});
+
 // Form Toggle Functionality
 const loginToggle = document.getElementById("loginToggle");
 const registerToggle = document.getElementById("registerToggle");
@@ -26,10 +58,8 @@ registerToggle.addEventListener("click", () => {
   document.getElementById("forgotPassword").style.display = "none";
 });
 
-// Cat Eye Tracking
+// Cat Eye Tracking (only in day mode)
 const catContainer = document.getElementById("catContainer");
-const leftEye = document.getElementById("leftEye");
-const rightEye = document.getElementById("rightEye");
 const catHead = document.querySelector(".cat-head");
 
 // Throttle function for better performance
@@ -47,6 +77,9 @@ function throttle(func, limit) {
 }
 
 const handleMouseMove = throttle((e) => {
+  // Only track eyes in day mode
+  if (body.classList.contains("night-mode")) return;
+
   const catRect = catHead.getBoundingClientRect();
   const catCenterX = catRect.left + catRect.width / 2;
   const catCenterY = catRect.top + catRect.height / 2;
@@ -77,8 +110,11 @@ function closeEyes() {
   rightEye.classList.add("closed");
 
   setTimeout(() => {
-    leftEye.classList.remove("closed");
-    rightEye.classList.remove("closed");
+    // Only reopen eyes if in day mode
+    if (!body.classList.contains("night-mode")) {
+      leftEye.classList.remove("closed");
+      rightEye.classList.remove("closed");
+    }
   }, 1500);
 }
 
@@ -225,9 +261,15 @@ inputs.forEach((input) => {
   });
 });
 
-// Cat Click Interaction
+// Cat Click Interaction (only in day mode)
 const cat = document.querySelector(".cat");
 cat.addEventListener("click", () => {
+  // Only allow interaction in day mode
+  if (body.classList.contains("night-mode")) {
+    // Cat is sleeping, don't respond to clicks
+    return;
+  }
+
   closeEyes();
 
   // Add a little jump animation

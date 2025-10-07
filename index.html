@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Auth Form</title>
+    <title>Cat Auth Form - Day/Night Mode</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle">
+            <div class="theme-switch" id="themeSwitch">
+                <div class="theme-slider">
+                    <span class="theme-icon" id="themeIcon">☀️</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Cat Animation -->
         <div class="cat-container" id="catContainer">
             <div class="cat">
@@ -29,6 +38,10 @@
                     <div class="whisker right-2"></div>
                 </div>
                 <div class="tail"></div>
+                <!-- Sleeping Z's -->
+                <div class="sleeping-z">Z</div>
+                <div class="sleeping-z">z</div>
+                <div class="sleeping-z">z</div>
             </div>
         </div>
 
@@ -109,6 +122,6 @@
         </div>
     </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
