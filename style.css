@@ -22,7 +22,6 @@ body {
   transition: background 0.5s ease;
 }
 
-/* Night Mode Styles */
 body.night-mode {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
 }
@@ -34,7 +33,6 @@ body.night-mode {
   flex-shrink: 0;
 }
 
-/* Theme Toggle */
 .theme-toggle {
   position: absolute;
   top: 10px;
@@ -82,7 +80,6 @@ body.night-mode .theme-slider {
   transition: all 0.3s ease;
 }
 
-/* Cat Styles */
 .cat-container {
   position: relative;
   width: 100%;
@@ -103,7 +100,6 @@ body.night-mode .theme-slider {
   transition: all 0.5s ease;
 }
 
-/* Sleeping Cat Position */
 body.night-mode .cat {
   transform: rotate(15deg);
   margin-top: -10px;
@@ -218,8 +214,6 @@ body.night-mode .eye::before {
 .eye.closed::before {
   display: none;
 }
-
-/* Night mode - always closed eyes */
 body.night-mode .eye {
   height: 2px;
   background: #333;
@@ -321,7 +315,6 @@ body.night-mode .tail {
   }
 }
 
-/* Sleeping Z's */
 .sleeping-z {
   position: absolute;
   top: -20px;
@@ -364,7 +357,6 @@ body.night-mode .sleeping-z {
   animation-delay: 1s;
 }
 
-/* Form Styles */
 .form-container {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
@@ -512,7 +504,6 @@ body.night-mode .form-group input::placeholder {
   color: #707090;
 }
 
-/* Improved Password Toggle Eye */
 .password-toggle {
   position: absolute;
   right: 16px;
@@ -544,7 +535,6 @@ body.night-mode .form-group input::placeholder {
   transition: all 0.3s ease;
 }
 
-/* Improved Eye Design */
 .eye-icon::before {
   content: "";
   position: absolute;
@@ -578,7 +568,6 @@ body.night-mode .eye-icon::after {
   background: #b0b0b0;
 }
 
-/* Closed Eye State */
 .eye-icon.closed::before {
   border-color: #999;
   background: rgba(153, 153, 153, 0.1);
@@ -592,8 +581,6 @@ body.night-mode .eye-icon.closed::before {
 .eye-icon.closed::after {
   display: none;
 }
-
-/* Eye Slash Line */
 .eye-icon.closed::before {
   position: relative;
 }
@@ -812,7 +799,6 @@ body.night-mode .error-message {
   }
 }
 
-/* Mobile Specific Adjustments */
 @media (max-width: 480px) {
   body {
     padding: 15px 10px 30px;
@@ -957,7 +943,6 @@ body.night-mode .error-message {
   }
 }
 
-/* Very Small Screens */
 @media (max-width: 360px) {
   .form-container {
     padding: 20px 15px;
@@ -973,7 +958,6 @@ body.night-mode .error-message {
   }
 }
 
-/* Landscape Mode */
 @media (max-height: 600px) and (orientation: landscape) {
   body {
     padding: 10px;
